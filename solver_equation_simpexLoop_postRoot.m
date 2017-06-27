@@ -22,6 +22,8 @@ else
     q = abs(dg(b));
 end
 fprintf('He so co q = %f\n', q);
+
+% Kiem tra tinh hoi tu
 if abs(q) >= 1
     disp('Ham g(x) khong hoi tu.');
 else
