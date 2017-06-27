@@ -12,10 +12,10 @@ accuracy = input('Nhap do chinh xac mong muon:');
 if f(a)*f(b) > 0
     disp('Phuong trinh co the khong co nghiem trong khoang cach ly nghiem.')
 else
-    d = b-a;
-    while d > accuracy
+    dx = b-a;
+    while dx > accuracy
         x = (a+b)/2;
-        d = d/2;
+        dx = dx/2;
         if f(x) ~= 0
             if f(a)*f(x) < 0
                 b = x;
