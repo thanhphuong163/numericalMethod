@@ -20,7 +20,6 @@ df2 = diff(df);
 g = x - f/df;    % g(x) = x - (f(x)/df(x))
 dg = diff(g);
 dg = inline(dg);
-g = inline(g);
 
 % Tinh he so co q
 if dg((a+b)/2) < 0
@@ -28,13 +27,12 @@ if dg((a+b)/2) < 0
 else
     q = abs(dg(b));
 end
-fprintf('he so co q = %d\n', q);
 
 df = inline(df);
 df2 = inline(df2);
 
 % Kiem tra tinh hoi tu
-if q > 1
+if q >= 1
     disp('Ham g(x) khong hoi tu.');
 else
     % Chon x0
@@ -53,13 +51,13 @@ else
     end
     
     % Lap
-    x1 = g(x0);
-    dx = abs(fx(x1))/m;
-    x0 = x1;
-    while dx > accuracy
-       x1 = g(x0);
-       dx = abs(fx(x1))/m;
-       x0 = x1;
+    x = g(x0);
+    dx = abs(f(x))/m;
+    x0 = x;
+    while dx > accracy
+       x = g(x0);
+       dx = abs(f(x))/m;
+       x0 = x;
     end
     
     % Thong bao ra man hinh
