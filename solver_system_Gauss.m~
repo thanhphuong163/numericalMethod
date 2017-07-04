@@ -1,0 +1,59 @@
+clc;
+
+% Giai he phuong trinh tuyen tinh dang Ax=b bang phuong phap khu Gauss
+% Cac tham so nhap vao gom ma tran he so A va vector b
+% Gia tri tra ve la nghiem cua he chinh la vector x
+
+A = input('Nhap ma tran he so A = ');
+shapeA = size(A);
+while shapeA(1) ~= shapeA(2)
+    disp('Ma tran he so A phai la ma tran vuong.');
+    A = input('Nhap ma tran he so A = ');
+    shapeA = size(A);
+end
+
+b = input('Nhap vector b = ');
+shape_b = size(b);
+while shape_b(1) ~= shapeA(1)
+    disp('Vector b phai cung so hang voi ma tran A.');
+    b = input('Nhap vector b = ');
+    shape_b = size(b);
+end
+
+G = [A b];
+shapeG = size(G);
+
+% Qua trinh khu Gauss
+for pivot = 1 : shapeG(1)
+    for row = pivot+1 : shapeG(1)
+        G(row,:) = G(row,:)*G(pivot,pivot) - G(pivot,:)*G(row,pivot);
+    end
+end
+
+% Qua trinh giai nghiem
+if (G(shapeA,shapeA) == 0 and G
+for pivot = shapeG(1) : 1
+    for row = pivot-1 : 1
+        G(row,:) = G(row,:)*G(pivot,pivot) - G(pivot,:)*G(row,pivot);
+    end
+end
+x = [];
+for i = 1:shapeA(1)
+    x0 = G(i,shapeG(2));
+    x = [x x0];
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
