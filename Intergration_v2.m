@@ -23,7 +23,7 @@ function [ I, n ] = Intergration_v2( f, err, a, b )
     v = [];
     v = [v a];
     for i = 1:1000
-        v = [v i*d];
+        v = [v a+i*d];
     end
     % Tim max cua tri tuyet doi cua dao ham cap 4 cua f(x)
     M4 = abs(D4f(v(1)));
@@ -36,7 +36,7 @@ function [ I, n ] = Intergration_v2( f, err, a, b )
     % Tinh n dua vao err va M4
     n4 = (M4*(b-a)^5)/(180*err);
     % Ham floor de lam tron xuong
-    n = floor(nthroot(n4, 4));
+    n = ceil(nthroot(n4, 4));
     
      % Tinh h
     h = (b-a)/n;
@@ -52,7 +52,7 @@ function [ I, n ] = Intergration_v2( f, err, a, b )
     % Xay dung x'
     x_ = [];
     for i = 1:n
-        x_bar = (2*i-1)*(h/2);
+        x_bar = a + (2*i-1)*(h/2);
         x_ = [x_ x_bar];
     end
     

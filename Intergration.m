@@ -29,7 +29,7 @@ function [ I, err ] = Intergration( f, n, a, b)
     % Xay dung x'
     x_ = [];
     for i = 1:n
-        x_bar = (2*i-1)*(h/2);
+        x_bar = a + (2*i-1)*(h/2);
         x_ = [x_ x_bar];
     end
     
@@ -56,18 +56,21 @@ function [ I, err ] = Intergration( f, n, a, b)
     % Tinh sai so
     d4f = diff(f,4);
     D4f = inline(d4f);
-    M4 = abs(Diff_f4(x(1)));
-    for i = 2:n+f1
-        if M4 < abs(D4f(x(i)))
-            M4 = abs(D4f(x(i)));
+    d = (b-a)/1000; % Chia khoang [a,b] nho ra de tinh cuc tri
+    v = [];
+    v = [v a];
+    for i = 1:1000
+        vbar = a + i*d;
+        v = [v vbar];
+    end
+    % Tim max cua tri tuyet doi cua dao ham cap 4 cua f(x)
+    M4 = abs(D4f(v(1)));
+    for i = 2:1001
+        if M4 < abs(D4f(v(i)))
+            M4 = abs(D4f(v(i)));
         end
     end
-    for i = 1:n
-        if M4 < abs(D4f(x_(i)))
-            M4 = abs(D4f(x_(i)));
-        end
-    end
-    err = M4*(b-a)^5/(180*n^4);
+    err = (M4*(b-a)^5)/(180*n^4);
     
 end
 
