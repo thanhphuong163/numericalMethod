@@ -1,5 +1,5 @@
-function [ I, n ] = Intergration_v2( f, err, a, b )
-% INTERGRATION_V2 la ham tinh gan dung tich phan cua mot ham lien tuc tren
+function [ I, n ] = Integration_v2( f, err, a, b )
+% INTEGRATION_V2 la ham tinh gan dung tich phan cua mot ham lien tuc tren
 % [a,b]
 % Cac tham so dau vao cua ham gom:
 %    f : Ham duoi dau tich phan
