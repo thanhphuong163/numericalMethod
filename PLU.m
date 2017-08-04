@@ -3,12 +3,9 @@ function [ L, U, P] = PLU( A )
 % triangle matrices L and U with exchange. PA = LU
 
     % Get and check size of A
-    m = size(A);
-    if m(1) ~= m(2)
-        disp('Matrix A must be a square matrix.');
-        return;
-    end
-    n = m(1);
+    sizeA = size(A);
+    n = sizeA(1);
+    m = sizeA(2);
     
     % Doublicate A
     A_ = A;

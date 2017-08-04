@@ -3,12 +3,9 @@ function [ L, U ] = LU(A)
 % triangle matrices L and U without exchange.
 
     % Get and check size of A
-    m = size(A);
-    if m(1) ~= m(2)
-        disp('Matrix A must be a square matrix.');
-        return;
-    end
-    n = m(1);
+    sizeA = size(A);
+    n = sizeA(1);
+    m = sizeA(2);
     
     % Build L
     v = ones(1,n);
